@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "AtCoder Rating Color",
+  "version": "1",
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "description": "AtCoderのユーザーIDを入力すると、レートに合わせてbody要素の色が変更されます。",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://atcoder.jp/*"
+      ],
+      "js": [
+        "scripts/content_script.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_title": "test",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs"],
+  "background": {
+    "scripts": ["scripts/background.js"]
+  }
+
+}
