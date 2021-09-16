@@ -1,8 +1,6 @@
-// const userId = "autumn_fish";
-//queryselectorでhoge.style.cssのセレクタ名(backgroundとか)でいけそう
 let myRecord;
 let userId = "tourist";
-if(localStorage.getItem("key") != null) userId = localStorage.getItem("key");
+if (localStorage.getItem("key") != null) userId = localStorage.getItem("key");
 console.log(userId);
 asyncMain();
 const styles = document.querySelector("body");
@@ -13,15 +11,13 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 });
 
 async function asyncMain() {
-  await fetch(
-    `https://acrating.netlify.app/`,{mode: 'cors'}
-  ).then((response) => {
-    // console.log(response.status);
-    return response.json().then((userInfo) => {
-      // console.log(userInfo);
-      myRecord = userInfo;
-    });
-  });
+  await fetch(`https://acrating.netlify.app/`, { mode: "cors" }).then(
+    (response) => {
+      return response.json().then((userInfo) => {
+        myRecord = userInfo;
+      });
+    }
+  );
   if (myRecord[0] === undefined) {
     styles.style.background = "black";
   } else {
@@ -36,12 +32,6 @@ async function asyncMain() {
     else if (rating >= 800) styles.style.background = "green";
     else if (rating >= 400) styles.style.background = "rgb(128, 64, 0)";
     else styles.style.background = "grey";
-    // console.log(styles.style.background);
-    // console.log(555);
-    localStorage.setItem("key",userId);
+    localStorage.setItem("key", userId);
   }
 }
-
-//TODO:Atcoderのサイトであればfetchしてもエラーがでないため、atcoderのサイトを経由させていい感じにする。
-//TODO:プロキシサーバを作るのと、サイト間を無視させるならbackgroundとstrageが必須かも
-//TODO:とりあえずでいいのでレートによって色を変えられるだけでもやろう
