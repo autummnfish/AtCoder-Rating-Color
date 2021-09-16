@@ -14,7 +14,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 async function asyncMain() {
   await fetch(
-    `https://atcoder.jp/users/${encodeURIComponent(userId)}/history/json`
+    `https://acrating.netlify.app/`,{mode: 'cors'}
   ).then((response) => {
     // console.log(response.status);
     return response.json().then((userInfo) => {
