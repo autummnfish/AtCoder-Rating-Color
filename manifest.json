@@ -10,21 +10,16 @@
   "description": "AtCoderのユーザーIDを入力すると、レートに合わせてbody要素の色が変更されます。",
   "content_scripts": [
     {
-      "matches": [
-        "https://*/*","http://*/*"
-      ],
-      "js": [
-        "scripts/content_script.js"
-      ]
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["scripts/content_script.js"]
     }
   ],
   "browser_action": {
     "default_title": "test",
     "default_popup": "popup.html"
   },
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "storage"],
   "background": {
     "scripts": ["scripts/background.js"]
   }
-
 }

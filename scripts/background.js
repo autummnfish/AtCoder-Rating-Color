@@ -7,17 +7,17 @@
 // async function Main() {
 //   const userId = "autumn_fish";
 //   console.log("strat");
-//   let myRecord;
+//   let userContestRecord;
 //   await fetch(
 //     `https://atcoder.jp/users/${encodeURIComponent(userId)}/history/json`
 //   ).then((response) => {
 //     console.log(response.status);
 //     return response.json().then((userInfo) => {
-//       myRecord = userInfo;
+//       userContestRecord = userInfo;
 //     });
 //   });
-//   console.log(myRecord);
-//   await chrome.runtime.sendMessage(myRecord);
+//   console.log(userContestRecord);
+//   await chrome.runtime.sendMessage(userContestRecord);
 //   console.log(111);
 // }
 /**
